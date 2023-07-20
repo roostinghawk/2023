@@ -23,14 +23,15 @@ jobs:
           python-version: 3.8
 
       - name: Install dependencies
-        run:  |
+        run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: GET UP
         run: |
+          python -c 'print(333)'
           python get_up.py ${{ secrets.G_T }} ${{ github.repository }} --weather_message ": ${{ github.event.inputs.message }}" --bing_cookie ${{ secrets.BING_COOKIE }}
-
+          
       - name: Push New Pic
         run: |
           git config --local user.email "action@github.com"
