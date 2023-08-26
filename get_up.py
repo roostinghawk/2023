@@ -67,8 +67,7 @@ def make_get_up_message(bing_cookie):
     print(f"今日诗句：{sentence}")
     now = pendulum.now(TIMEZONE)
     # 3 - 7 means early for me
-    # is_get_up_early = 3 <= now.hour <= 7
-    is_get_up_early = 3 <= now.hour
+    is_get_up_early = 3 <= now.hour <= 7
     get_up_time = now.to_datetime_string()
     ms = [{"role": "user", "content": PROMPT.format(sentence=sentence)}]
     # completion = openai.ChatCompletion.create(
