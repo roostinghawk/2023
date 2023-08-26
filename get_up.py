@@ -64,6 +64,7 @@ def make_pic_and_save(sentence_en, bing_cookie):
 
 def make_get_up_message(bing_cookie):
     sentence = get_one_sentence()
+    print("今日诗句：{sentence}")
     now = pendulum.now(TIMEZONE)
     # 3 - 7 means early for me
     is_get_up_early = 3 <= now.hour <= 7
