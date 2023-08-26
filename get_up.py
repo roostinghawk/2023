@@ -64,31 +64,31 @@ def make_pic_and_save(sentence_en, bing_cookie):
 
 def make_get_up_message(bing_cookie):
     sentence = get_one_sentence()
-    print("今日诗句：{sentence}")
+    print(f"今日诗句：{sentence}")
     now = pendulum.now(TIMEZONE)
     # 3 - 7 means early for me
     is_get_up_early = 3 <= now.hour <= 7
     get_up_time = now.to_datetime_string()
     ms = [{"role": "user", "content": PROMPT.format(sentence=sentence)}]
-    completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=ms,
-    )
-    sentence_en = (
-        completion["choices"][0].get("message").get("content").encode("utf8").decode()
-    )
+    # completion = openai.ChatCompletion.create(
+    #     model="gpt-3.5-turbo",
+    #     messages=ms,
+    # )
+    # sentence_en = (
+    #     completion["choices"][0].get("message").get("content").encode("utf8").decode()
+    # )
     link = ""
     try:
-        link = make_pic_and_save(sentence_en, bing_cookie)
+        # link = make_pic_and_save(sentence_en, bing_cookie)
     except Exception as e:
         print(str(e))
         # give it a second chance
         try:
-            link = make_pic_and_save(sentence_en, bing_cookie)
+            # link = make_pic_and_save(sentence_en, bing_cookie)
         except Exception as e:
             print(str(e))
     body = GET_UP_MESSAGE_TEMPLATE.format(
-        get_up_time=get_up_time, sentence=sentence, link=link
+        get_up_time=get_up_time, sentence=sentence, link=''
     )
     print(body)
     return body, is_get_up_early
