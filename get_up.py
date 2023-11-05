@@ -126,6 +126,7 @@ def main(
         #         },
         #     )
     else:
+        issue.create_comment(body)
         print("You wake up late")
 
 
