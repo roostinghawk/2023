@@ -115,9 +115,9 @@ def main(
     # if is_get_up_early:
         issue.create_comment(body)
         # send to telegram
-        print 'check tele_token and tele_chat_id'
+        print("check tele_token and tele_chat_id")
         if tele_token and tele_chat_id:
-            print 'start posting to TG...'
+            print("start posting to TG...")
             requests.post(
                 url="https://api.telegram.org/bot{0}/{1}".format(
                     tele_token, "sendMessage"
