@@ -106,7 +106,7 @@ def main(
     is_toady = get_today_get_up_status(issue)
     if is_toady:
         print("Today I have recorded the wake up time")
-        return
+        # return
     early_message, is_get_up_early = make_get_up_message(bing_cookie)
     body = early_message
     if weather_message:
