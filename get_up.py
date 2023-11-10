@@ -114,7 +114,7 @@ def main(
         body = weather_message + early_message
     # if is_get_up_early:
         issue.create_comment(body)
-        send to telegram
+        # send to telegram
         if tele_token and tele_chat_id:
             requests.post(
                 url="https://api.telegram.org/bot{0}/{1}".format(
