@@ -106,13 +106,13 @@ def main(
     is_toady = get_today_get_up_status(issue)
     if is_toady:
         print("Today I have recorded the wake up time")
-        # return
+        return
     early_message, is_get_up_early = make_get_up_message(bing_cookie)
     body = early_message
     if weather_message:
         weather_message = f"现在的天气是{weather_message}\n"
         body = weather_message + early_message
-    # if is_get_up_early:
+    if is_get_up_early:
         issue.create_comment(body)
         # send to telegram
         print("check tele_token and tele_chat_id")
@@ -127,9 +127,8 @@ def main(
                     "text": body,
                 },
             )
-    # else:
-    #     issue.create_comment(body)
-    #     print("You wake up late")
+    else:
+        print("You wake up late")
 
 
 if __name__ == "__main__":
