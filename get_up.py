@@ -112,22 +112,22 @@ def main(
     if weather_message:
         weather_message = f"现在的天气是{weather_message}\n"
         body = weather_message + early_message
-    if is_get_up_early:
+    # if is_get_up_early:
         issue.create_comment(body)
-        # send to telegram
-        # if tele_token and tele_chat_id:
-        #     requests.post(
-        #         url="https://api.telegram.org/bot{0}/{1}".format(
-        #             tele_token, "sendMessage"
-        #         ),
-        #         data={
-        #             "chat_id": tele_chat_id,
-        #             "text": body,
-        #         },
-        #     )
-    else:
-        issue.create_comment(body)
-        print("You wake up late")
+        send to telegram
+        if tele_token and tele_chat_id:
+            requests.post(
+                url="https://api.telegram.org/bot{0}/{1}".format(
+                    tele_token, "sendMessage"
+                ),
+                data={
+                    "chat_id": tele_chat_id,
+                    "text": body,
+                },
+            )
+    # else:
+    #     issue.create_comment(body)
+    #     print("You wake up late")
 
 
 if __name__ == "__main__":
