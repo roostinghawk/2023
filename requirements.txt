@@ -3,4 +3,4 @@ requests
 pendulum
 rich
 openai
-BingImageCreator==0.4.4
+BingImageCreator-fork==0.7.2
