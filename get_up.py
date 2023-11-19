@@ -112,7 +112,7 @@ def main(
     if weather_message:
         weather_message = f"现在的天气是{weather_message}\n"
         body = weather_message + early_message
-    if is_get_up_early:
+    if True:
         issue.create_comment(body)
         # send to telegram
         print("check tele_token and tele_chat_id")
